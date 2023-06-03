@@ -1,9 +1,18 @@
 from django.urls import path
-from tapp.views import TaskListView, TaskDetailView
+from .views import (
+    create_task,
+    read_task,
+    read_all_task,
+    update_task,
+    delete_task,
+)
 
 app_name = 'tasks'
 
 urlpatterns = [
-    path('tasks/', TaskListView.as_view(), name='task-list'),
-    path('tasks/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
+    path('task/create/', create_task),
+    path('task/read/<int:pk>/', read_task),
+    path('task/read/', read_all_task),
+    path('task/update/<int:pk>/', update_task),
+    path('task/delete/<int:pk>/', delete_task),
 ]
