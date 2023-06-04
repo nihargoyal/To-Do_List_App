@@ -1,18 +1,10 @@
-from django.urls import path
-from .views import (
-    create_task,
-    read_task,
-    read_all_task,
-    update_task,
-    delete_task,
-)
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import TodoItemViewSet
 
-app_name = 'tasks'
+router = DefaultRouter()
+router.register(r'todo', TodoItemViewSet)
 
 urlpatterns = [
-    path('task/create/', create_task),
-    path('task/read/<int:pk>/', read_task),
-    path('task/read/', read_all_task),
-    path('task/update/<int:pk>/', update_task),
-    path('task/delete/<int:pk>/', delete_task),
+    path('', include(router.urls)),
 ]
