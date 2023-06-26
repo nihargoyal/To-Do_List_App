@@ -13,10 +13,10 @@ class TaskAdmin(admin.ModelAdmin):
     readonly_fields = ('timestamp',)
     fieldsets = (
         ('Task Details', {
-            'fields': ('title', 'description', 'due_date', 'status')
+            'fields': ('title', 'description', 'duedate', 'status')
         }),
         ('Tags', {
-            'fields': ('tags',)
+            'fields': ('tag',)
         }),
     )
 @admin.register(Tag)
